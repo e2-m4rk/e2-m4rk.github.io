@@ -1,320 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello MJ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/E2.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Joseph | Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/logo daw.png">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="container">
-        <img src="assets/LOGO ito.png" alt="logo" class="navbar-logo me-2">
-        <span class="navbar-brand">E2M4RK</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#home-section">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about-section">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects-section">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact-section">Contact</a>
-            </li>
-          </ul>
+
+  <div class="bg-canvas">
+    <canvas id="starfield"></canvas>
+  </div>
+
+  <div id="loading-overlay">
+    <div class="loader-ring"></div>
+  </div>
+
+  <nav id="navbar">
+    <div class="container-xl h-100 d-flex align-items-center justify-content-between">
+      <a href="#home" class="nav-logo-link">
+        <div class="logo-badge">
+          <img src="assets/logo daw.png" alt="logo">
         </div>
+        <span class="nav-logo-text">E2<em>M4RK</em></span>
+      </a>
+
+      <ul class="nav-pill-group d-none d-lg-flex">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="d-none d-lg-flex nav-social-icons">
+        <a href="https://github.com/E2-M4RK?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mark-joseph-dela-torre-076a47295/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/Kuysz.mj" target="_blank"><i class="fab fa-facebook-f"></i></a>
       </div>
-    </nav>
-  </header>
+
+      <button class="d-flex d-lg-none flex-column gap-1 bg-transparent border-0 p-2" onclick="toggleMenu()" style="cursor:pointer;">
+        <span style="display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;"></span>
+        <span style="display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;"></span>
+        <span style="display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-panel" id="mobile-menu">
+    <ul>
+      <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
 
   <main>
-    <!-- Home Section -->
-    <section id="home-section" class="vh-100 d-flex align-items-center text-center intro-section" data-aos="fade-up">
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-lg-6 text-start" data-aos="fade-up">
-                  <p class="text-warning intro-text">Hello, I am</p>
-                  <h1 class="fw-bold intro-name">Mark Joseph Dela Torre</h1>
-                  <p class="text-success intro-text">UX/UI Designer & Developer</p>
-                  <p class="intro-description">I am a student and enthusiastic UX/UI developer eager to learn more about web development. My main focus
-                      is on creating user-friendly, responsive websites that combine imaginative design with simple
-                      functionality.</p>
-                  <a href="https://mail.google.com/mail/u/1/#inbox?compose=HfxTvNsTvkZXRlCTHLJFQBQQVssrmqVGLdbbLGSFDvhZnBVRzMVVhpSdrhvThQSdGLFRJHDhXxVDJTsmhMsZfBmbSwPrSLgXVszPSMdwnLlCpQzqZWJsCfPGvfxSVsCJZXkmsgZTzrNgLtBJvwZsFBScbBXmbpsHXjLWVL"
-                      class="btn btn-warning btn-lg">Talk to me</a>
-              </div>
-              <div class="col-lg-6" data-aos="zoom-in">
-                  <img src="assets/Me 2.png" alt="Mark Joseph" class="img-fluid rounded-circle profile-img">
-              </div>
-          </div>
-      </div>
-  </section>
 
-
-    <!-- About Section -->
-    <section id="about-section" class="py-5 bg-dark text-white" data-aos="fade-up">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="zoom-in">
-            <img src="assets/Me din.jpg" alt="About Me" class="img-fluid rounded-4">
+    <section id="home">
+      <div class="container-xl">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-6 hero-left">
+            <div class="section-tag"><i class="fas fa-code"></i> UX/UI Designer &amp; Developer</div>
+            <p class="hero-greeting">Hello, I am</p>
+            <h1 class="hero-name">Mark Joseph<br>Dela Torre</h1>
+            <p class="hero-role"><span class="gradient-text">Front-end Developer &amp; UX/UI Designer</span></p>
+            <p class="hero-desc">
+              A 3rd-year BSIT student passionate about crafting user-friendly, responsive websites. I blend imaginative design with clean, functional code to create experiences worth remembering.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="mailto:delatorremark0428@gmail.com" class="btn-gold">
+                <i class="fas fa-paper-plane"></i> Talk to Me
+              </a>
+              <a href="#projects" class="btn-outline-glass">
+                <i class="fas fa-folder-open"></i> View Projects
+              </a>
+            </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-up">
-            <h2 class="mb-3">About Me</h2>
-            <p>I’m a 3rd-year BSIT student at the Polytechnic University of the Philippines, Sto. Tomas Campus,
-              specializing in Web Development. I create user-friendly and responsive web projects with clean,
-              well-organized code.</p>
-            <blockquote class="blockquote">
-              <p>"Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs</p>
-            </blockquote>
-            <a href="403.html" class="btn btn-warning btn-lg mt-3">Learn More</a>
-            <div class="mt-4">
-              <p>Follow me on:</p>
-              <a href="https://www.facebook.com/Kuysz.mj" class="text-warning me-3"><i
-                  class="fab fa-facebook fa-2x"></i></a>
-              <a href="https://x.com/e2Mark" class="text-warning me-3"><i class="fab fa-twitter fa-2x"></i></a>
-              <a href="https://www.instagram.com/d_mrkjsph/" class="text-warning me-3"><i
-                  class="fab fa-instagram fa-2x"></i></a>
-              <a href="https://github.com/E2-M4RK?tab=repositories" class="text-warning"><i
-                  class="fab fa-github fa-2x"></i></a>
+
+          <div class="col-12 col-lg-6 hero-right">
+            <div class="hero-visual">
+              <div class="hero-avatar-ring">
+                <div class="avatar-orbit">
+                  <div class="orbit-dot"></div>
+                </div>
+                <div class="avatar-orbit avatar-orbit-2">
+                  <div class="orbit-dot orbit-dot-2"></div>
+                </div>
+                <div class="hero-avatar-wrap">
+                  <img src="assets/halah.png" alt="Mark Joseph Dela Torre">
+                </div>
+              </div>
+              <div class="chip chip-1"><i class="fas fa-paint-brush"></i> UX/UI Design</div>
+              <div class="chip chip-2"><i class="fas fa-code"></i> Web Dev</div>
+              <div class="chip chip-3"><i class="fas fa-graduation-cap"></i> PUP Student</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects WD-BE -->
-    <section id="projects-section" class="container-fluid my-5 px-0" data-aos="fade-up">
-      <div class="row bg-black text-white py-5">
-        <div class="col-12 text-center mb-5" data-aos="fade-up">
-          <h2 class="project-title">WD-BE</h2>
-        </div>
-        <div class="col-12 d-flex flex-wrap justify-content-center gap-4">
-          <div class="row w-100 justify-content-center">
-            <div class="col-md-3 mb-4" data-aos="fade-right">
-              <div class="project-card">
-                <img src="assets/Realme 1.JPG" alt="Project 1">
-                <div class="card-img-overlay">
-                  <p class="project-description">Phone Showcasing | REALME</p>
-                </div>
+    <section id="about">
+      <div class="container-xl">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-5 reveal-left">
+            <div class="position-relative" style="padding-bottom: 20px; padding-right: 20px;">
+              <div class="about-photo-frame">
+                <img src="assets/Me din.jpg" alt="About Mark Joseph">
               </div>
-              <a href="WD-BE/Activity-1/index.html" class="project-btn" onclick="showLoading()">Project 1</a>
-            </div>
-            <div class="col-md-3 mb-4" data-aos="zoom-out-down">
-              <div class="project-card">
-                <img src="assets/Londonito.JPG" alt="Project 2">
-                <div class="card-img-overlay">
-                  <p class="project-description">Using Bootstrap | Visit in London</p>
-                </div>
+              <div class="about-accent-card">
+                <div class="accent-number">4th</div>
+                <div class="accent-label">Year BSIT</div>
               </div>
-              <a href="WD-BE/Activity-2/home.html" class="project-btn" onclick="showLoading()">Project 2</a>
-            </div>
-            <div class="col-md-3 mb-4" data-aos="fade-left">
-              <div class="project-card">
-                <img src="assets/House of shot 1.JPG" alt="Project 3">
-                <div class="card-img-overlay">
-                  <p class="project-description">Gallery | House of Shot</p>
-                </div>
-              </div>
-              <a href="WD-BE/Activity-3/index.html" class="project-btn" onclick="showLoading()">Project 3</a>
             </div>
           </div>
-          <div class="row w-100 justify-content-center">
-            <div class="col-md-3 mb-4" data-aos="fade-right">
-              <div class="project-card">
-                <img src="assets/Digimon 1.JPG" alt="Project 4">
-                <div class="card-img-overlay">
-                  <p class="project-description">js API | Digimon</p>
-                </div>
-              </div>
-              <a href="WD-BE/Activity-4/Home.html" class="project-btn" onclick="showLoading()">Project 4</a>
+
+          <div class="col-12 col-lg-7 reveal-right">
+            <div class="section-tag"><i class="fas fa-user"></i> About Me</div>
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; color: #fff; margin-bottom: 1rem;">Who I Am</h2>
+            <p style="font-size: 15px; color: var(--text-muted-custom); line-height: 1.9; margin-bottom: 1rem;">
+              I'm a 4th year BSIT student at the <strong style="color:#fff;">Polytechnic University of the Philippines, Sto. Tomas Campus</strong>, specializing in Web Development. I create user-friendly and responsive web projects with clean, well-organized code.
+            </p>
+            <p style="font-size: 15px; color: var(--text-muted-custom); line-height: 1.9;">
+              My focus is on bridging the gap between great visual design and seamless user experience turning ideas into elegant, functional interfaces.
+            </p>
+            <div class="blockquote-styled">
+              "There is no secret ingredient. It's just you" 
             </div>
-            <div class="col-md-3 mb-4" data-aos="zoom-out-down">
-              <div class="project-card">
-                <img src="assets/Dr Stone 1.JPG" alt="Project 5">
-                <div class="card-img-overlay">
-                  <p class="project-description">Embedded Video | Dr Stone</p>
-                </div>
-              </div>
-              <a href="WD-BE/Activity-5/index.html" class="project-btn" onclick="showLoading()">Project 5</a>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="pill-tag">HTML &amp; CSS</span>
+              <span class="pill-tag">JavaScript</span>
+              <span class="pill-tag">Bootstrap</span>
+              <span class="pill-tag">React</span>
+              <span class="pill-tag">PHP / MVC</span>
+              <span class="pill-tag">Figma</span>
+              <span class="pill-tag">Responsive Design</span>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-left">
-              <div class="project-card">
-                <img src="assets/Arcane ito.JPG" alt="Project 6">
-                <div class="card-img-overlay">
-                  <p class="project-description">Parallax | Arcane Tribute</p>
-                </div>
-              </div>
-              <a href="WD-BE/Activity-6/index.html" class="project-btn" onclick="showLoading()">Project 6</a>
+            <div class="d-flex gap-3 mt-4">
+              <a href="https://www.facebook.com/Kuysz.mj" target="_blank" class="icon-btn-sm"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/e2Mark" target="_blank" class="icon-btn-sm"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/d_mrkjsph/" target="_blank" class="icon-btn-sm"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/E2-M4RK?tab=repositories" target="_blank" class="icon-btn-sm"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/mark-joseph-dela-torre-076a47295/" target="_blank" class="icon-btn-sm"><i class="fab fa-linkedin-in"></i></a>
             </div>
+            <a href="#contact" class="btn-gold mt-4 d-inline-flex">
+              <i class="fas fa-envelope"></i> Get In Touch
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Project ADET -->
-    <section id="projects-section" class="container-fluid my-5 px-0" data-aos="fade-up">
-      <div class="row bg-black text-white py-5">
-        <div class="col-12 text-center mb-5" data-aos="fade-up">
-          <h2 class="project-title">App Dev</h2>
+    <section id="projects">
+      <div class="container-xl">
+        <div class="row justify-content-center mb-5 reveal">
+          <div class="col-12 text-center">
+            <div class="section-tag" style="justify-content:center;"><i class="fas fa-folder-open"></i> SCHOOL WORK</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A collection of work from my web development journey</p>
+          </div>
         </div>
-        <div class="col-12 d-flex flex-wrap justify-content-center gap-4">
-          <div class="row w-100 justify-content-center">
-            <div class="col-md-3 mb-4" data-aos="fade-right">
-              <div class="project-card">
-                <img src="assets/App Dev image.jpg" alt="Project 1">
-                <div class="card-img-overlay">
-                  <p class="project-description">Coming Soon</p>
+
+        <div class="projects-category reveal">
+          <div class="category-label"><i class="fas fa-laptop-code"></i> WD-BE</div>
+          <div class="row g-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 1 — REALME Showcase</h4>
+                  <p>Phone Showcasing | HTML &amp; CSS layout</p>
                 </div>
               </div>
-              <a href="ADET/A01/index.html" class="project-btn" onclick="showLoading()">Project 1</a>
             </div>
-            <div class="col-md-3 mb-4" data-aos="zoom-out-down">
-              <div class="project-card">
-                <img src="assets/ADET-IMG/A02_pic.PNG" alt="Project 2">
-                <div class="card-img-overlay">
-                  <p class="project-description">MVC architecture</p>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(114,161,222,0.1), rgba(241,182,6,0.05))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 2 — Visit London</h4>
+                  <p>Bootstrap layout | Travel website</p>
                 </div>
               </div>
-              <a href="ADET/A02/index.php" class="project-btn" onclick="showLoading()">MVC architecture Project</a>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-left">
-              <div class="project-card">
-                <img src="assets/bento1.PNG" alt="Project 3">
-                <div class="card-img-overlay">
-                  <p class="project-description">BENTO DESIGN</p>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(7,187,79,0.08), rgba(0,0,0,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 3 — House of Shot</h4>
+                  <p>Gallery layout | Photography site</p>
                 </div>
               </div>
-              <a href="ADET/A03/index.html" class="project-btn" onclick="showLoading()">Pokémon | Bento Design</a>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(255,100,0,0.08), rgba(0,0,0,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 4 — Digimon API</h4>
+                  <p>JavaScript API integration</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(114,161,222,0.1), rgba(71,0,160,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 5 — Dr Stone</h4>
+                  <p>Embedded Video | Anime tribute</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(180,0,100,0.1), rgba(71,0,160,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 6 — Arcane Tribute</h4>
+                  <p>Parallax scrolling | Arcane fan page</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row w-100 justify-content-center">
-            <div class="col-md-3 mb-4" data-aos="fade-right">
-              <div class="project-card">
-                <img src="assets/ADET-IMG/Hos-pos.PNG" alt="Project 4">
-                <div class="card-img-overlay">
-                  <p class="project-description">POS System web app</p>
+        </div>
+
+        <div class="projects-category reveal">
+          <div class="category-label"><i class="fas fa-mobile-alt"></i> App Dev</div>
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 1 — Coming Soon</h4>
+                  <p>App Dev Activity 1</p>
                 </div>
               </div>
-              <a href="ADET/A04/index.html" class="project-btn" onclick="showLoading()">HOS | POS System</a>
             </div>
-            <div class="col-md-3 mb-4" data-aos="zoom-out-down">
-              <div class="project-card">
-                <img src="assets/ADET-IMG/Studyboost.PNG" alt="Project 5">
-                <div class="card-img-overlay">
-                  <p class="project-description">Embedable Website Create</p>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(7,187,79,0.08), rgba(0,0,0,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>MVC Architecture</h4>
+                  <p>PHP MVC pattern implementation</p>
                 </div>
               </div>
-              <a href="ADET/A07/index.html" class="project-btn" onclick="showLoading()">StudyBoost | Embeded</a>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-left">
-              <div class="project-card">
-                <img src="assets/App Dev image.jpg" alt="Project 6">
-                <div class="card-img-overlay">
-                  <p class="project-description">Coming Soon</p>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(255,100,0,0.08), rgba(241,182,6,0.05))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Pokémon — Bento Design</h4>
+                  <p>Bento grid UI design</p>
                 </div>
               </div>
-              <a href="ADET/A01/index.html" class="project-btn" onclick="showLoading()">Project 6</a>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(114,161,222,0.1), rgba(0,0,0,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>HOS — POS System</h4>
+                  <p>Point of Sale web application</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(71,0,160,0.1), rgba(114,161,222,0.08))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>StudyBoost — Embedded</h4>
+                  <p>Embeddable study platform</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>Project 6 — Coming Soon</h4>
+                  <p>More projects in development</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+       <div class="container-xl">
+        <div class="row justify-content-center mt-5 reveal">
+          <div class="col-12 text-center">
+            <div class="section-tag" style="justify-content:center;"><i class="fas fa-folder-open"></i> Try WORK</div>
+            <h2 class="section-title">Mema Projects</h2>
+            <!-- <p class="section-subtitle">A collection of work from my web development journey</p> -->
+          </div>
+        </div>
+
+        <div class="projects-category reveal">
+          <div class="category-label"><i class="fas fa-laptop-code"></i> Sample</div>
+          <div class="row g-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4">
+ 
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(114,161,222,0.1), rgba(241,182,6,0.05))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>wala pa wait lang</h4>
+                  <p>Coming soon</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="project-card" onclick="showLoading()">
+                <div class="project-thumb" style="background: linear-gradient(135deg, rgba(7,187,79,0.08), rgba(0,0,0,0.1))">
+                  <div class="project-thumb-inner"></div>
+                  <div class="project-thumb-overlay"><span class="overlay-badge">View Project</span></div>
+                </div>
+                <div class="project-body">
+                  <h4>wala pa wait lang</h4>
+                  <p>Coming soon</p>
+                </div>
+              </div>
+            </div>
     </section>
 
-    <div id="loading-screen" class="loading-screen">
-      <div class="loader" role="status" aria-label="Loading">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
+    <section id="contact">
+      <div class="container-xl">
+        <div class="row g-5">
+          <div class="col-12 col-lg-5 reveal-left">
+            <div class="section-tag"><i class="fas fa-satellite-dish"></i> Get In Touch</div>
+            <h2 style="font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 900; color: #fff; margin-bottom: 0.8rem;">Let's Work<br>Together</h2>
+            <p style="color: var(--text-muted-custom); font-size: 15px; line-height: 1.8; margin: 1rem 0 2rem;">
+              Feel free to reach out whether you have a project in mind, a question, or just want to say hello!
+            </p>
 
-
-
-    <section id="contact-section" class="bg-black text-white py-5">
-
-      <div class="container p-4 pb-0">
-        <section>
-          <div class="row">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="color: #006f2d;">E2M4RK Website</h6>
-              <p>Thank you for visiting my website! I truly appreciate your time and interest. Your support means a lot,
-                and I hope you found something valuable. Feel free to come back anytime!</p>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-item-text">
+                <strong>Location</strong>
+                City of Cabuyao, Laguna 4025, Philippines
+              </div>
             </div>
 
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="color: #006f2d;">Contact</h6>
-              <p><i class="fas fa-home mr-3"></i> City of Cabuyao, Laguna 4025, PHI</p>
-              <p><i class="fas fa-envelope mr-3"></i> delatorremark0428@gmail.com</p>
-              <p><i class="fas fa-phone mr-3"></i> + 63 936 727 4813</p>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                delatorremark0428@gmail.com
+              </div>
             </div>
 
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="color: #006f2d;">Follow me on</h6>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998"
-                href="#https://www.facebook.com/Kuysz.mj" role="button"><i class="fab fa-facebook-f"></i></a>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="https://x.com/e2Mark"
-                role="button"><i class="fab fa-twitter"></i></a>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39"
-                href="https://mail.google.com/mail/u/1/#inbox?compose=HfxTvNsTvkZXRlCTHLJFQBQQVssrmqVGLdbbLGSFDvhZnBVRzMVVhpSdrhvThQSdGLFRJHDhXxVDJTsmhMsZfBmbSwPrSLgXVszPSMdwnLlCpQzqZWJsCfPGvfxSVsCJZXkmsgZTzrNgLtBJvwZsFBScbBXmbpsHXjLWVL"
-                role="button"><i class="fab fa-google"></i></a>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac"
-                href="https://www.instagram.com/d_mrkjsph/" role="button"><i class="fab fa-instagram"></i></a>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca"
-                href="https://www.linkedin.com/in/mark-joseph-dela-torre-076a47295/" role="button"><i
-                  class="fab fa-linkedin-in"></i></a>
-              <a class="btn btn-primary btn-floating m-1" style="background-color: #333333"
-                href="https://github.com/E2-M4RK?tab=repositories" role="button"><i class="fab fa-github"></i></a>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+              <div class="contact-item-text">
+                <strong>Phone</strong>
+                +63 936 727 4813
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a href="https://www.facebook.com/Kuysz.mj" target="_blank" class="social-link-btn soc-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+              <a href="https://x.com/e2Mark" target="_blank" class="social-link-btn soc-tw"><i class="fab fa-twitter"></i> Twitter</a>
+              <a href="https://www.instagram.com/d_mrkjsph/" target="_blank" class="social-link-btn soc-ig"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="https://github.com/E2-M4RK?tab=repositories" target="_blank" class="social-link-btn soc-gh"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/mark-joseph-dela-torre-076a47295/" target="_blank" class="social-link-btn soc-li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
             </div>
           </div>
-        </section>
+
+          <div class="col-12 col-lg-7 reveal-right">
+            <div class="contact-form-card">
+              <div class="mb-4">
+                <label class="form-label-custom">Full Name</label>
+                <input type="text" class="form-control-glass" placeholder="Your full name">
+              </div>
+              <div class="mb-4">
+                <label class="form-label-custom">Email Address</label>
+                <input type="email" class="form-control-glass" placeholder="your@email.com">
+              </div>
+              <div class="mb-4">
+                <label class="form-label-custom">Subject</label>
+                <input type="text" class="form-control-glass" placeholder="What's this about?">
+              </div>
+              <div class="mb-4">
+                <label class="form-label-custom">Your Message</label>
+                <textarea class="form-control-glass" placeholder="Share your thoughts..."></textarea>
+              </div>
+              <button class="btn-gold w-100 justify-content-center">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer class="bg-dark text-center text-white py-3">
-    <div class="container">
-      <p class="mb-0">&copy; 2024 <a href="https://e2-m4rk.github.io/" class="text-white">e2-m4rk.github.io</a>. All
-        rights reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2022 <a href="#">e2-m4rk.github.io</a>. Hello I'm MJ </p>
   </footer>
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script>
-    function showLoading(duration = 1000) {
-      const loadingScreen = document.getElementById('loading-screen');
-
-      loadingScreen.classList.add('show');
-
-      setTimeout(() => {
-        loadingScreen.classList.remove('show');
-      }, duration);
-    }
-    
-    AOS.init({
-    duration: 2000,
-    once: true,
-    
-  });
-
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
