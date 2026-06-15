@@ -553,34 +553,41 @@
     .project-card:hover {
       border-color: var(--glass-border-gold);
       transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px var(--gold-glow);
-    }
-
-    .project-thumb {
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5),
+                  0 0 30px var(--gold-glow);
+  }
+  
+  .project-thumb {
       position: relative;
       width: 100%;
-      padding-top: 56.25%;
-      background: linear-gradient(135deg, rgba(241,182,6,0.06), rgba(114,161,222,0.06));
+      height: 220px; /* pwede 220-250px */
       overflow: hidden;
-    }
-
-    .project-thumb-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .project-thumb-inner img {
+      background: linear-gradient(
+          135deg,
+          rgba(241,182,6,0.06),
+          rgba(114,161,222,0.06)
+      );
+  }
+  
+  .project-thumb-inner {
+      width: 100%;
+      height: 100%;
+  }
+  
+  .project-thumb-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-    }
-
-    .project-thumb-overlay {
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s ease;
+  }
+  
+  .project-card:hover .project-thumb-inner img {
+      transform: scale(1.05);
+  }
+  
+  .project-thumb-overlay {
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.65);
@@ -588,11 +595,12 @@
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover .project-thumb-overlay { opacity: 1; }
-
+      transition: opacity 0.3s ease;
+  }
+  
+  .project-card:hover .project-thumb-overlay {
+      opacity: 1;
+  }
     .overlay-badge {
       padding: 8px 20px;
       background: var(--gold);
@@ -734,17 +742,60 @@
       align-items: center;
       justify-content: center;
     }
-
-    #loading-overlay.active { display: flex; }
-
-    .loader-ring {
-      width: 60px; height: 60px;
-      border: 3px solid rgba(241,182,6,0.2);
-      border-top-color: var(--gold);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+    
+    #loading-overlay.active {
+      display: flex;
     }
-
+    
+    .loader {
+      --w: 10ch;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 30px;
+      letter-spacing: var(--w);
+      width: var(--w);
+      overflow: hidden;
+      white-space: nowrap;
+      color: #0000;
+      animation: l40 2s infinite;
+    }
+    
+    .loader:before {
+      content: "Teka lang ahh...";
+    }
+    
+    @keyframes l40 {
+      0%,100% {
+        text-shadow:
+          calc(0*var(--w)) 0 #f1b606,
+          calc(-1*var(--w)) 0 #f1b606,
+          calc(-2*var(--w)) 0 #f1b606,
+          calc(-3*var(--w)) 0 #f1b606,
+          calc(-4*var(--w)) 0 #f1b606,
+          calc(-5*var(--w)) 0 #f1b606,
+          calc(-6*var(--w)) 0 #f1b606,
+          calc(-7*var(--w)) 0 #f1b606,
+          calc(-8*var(--w)) 0 #f1b606,
+          calc(-9*var(--w)) 0 #f1b606;
+      }
+    
+      9% {
+        text-shadow:
+          calc(0*var(--w)) 0 #f1b606,
+          calc(-1*var(--w)) 0 #f1b606,
+          calc(-2*var(--w)) -20px #0000,
+          calc(-3*var(--w)) 0 #f1b606,
+          calc(-4*var(--w)) 0 #f1b606,
+          calc(-5*var(--w)) 0 #f1b606,
+          calc(-6*var(--w)) 0 #f1b606,
+          calc(-7*var(--w)) 0 #f1b606,
+          calc(-8*var(--w)) 0 #f1b606,
+          calc(-9*var(--w)) 0 #f1b606;
+      }
+    
+      /* ilagay mo dito ang natitirang keyframes mo
+         at palitan lahat ng #000 ng #f1b606 */
+    }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .reveal {
